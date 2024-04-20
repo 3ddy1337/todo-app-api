@@ -12,10 +12,19 @@
         <h1>Todo App API</h1>
     </header>
     <main>
+        <form>
+            <label><input type="radio" id="all" name="radio" checked>
+                All</label>
+            <label><input type="radio" id="open" name="radio">
+                Open</label>
+            <label><input type="radio" id="done" name="radio">
+                Done</label>
+        </form>
         <form id="todo-form">
-            <input type="text" id="input-field">
+            <input type="text" id="input-field" placeholder="What's up?">
             <button type="submit" id="submit-btn">Add</button>
         </form>
+        <button id="remove-button">Remove done Todos</button>
         <ul id="todo-list">
 
         </ul>

@@ -1,6 +1,10 @@
 const todoList = document.getElementById("todo-list");
 const form = document.getElementById("todo-form");
 const inputField = document.getElementById("input-field");
+const all = document.getElementById("all");
+const open = document.getElementById("open");
+const done = document.getElementById("done");
+const removeButton = document.getElementById("remove-button");
 
 // State
 let state = {
@@ -12,6 +16,13 @@ function render() {
   todoList.innerHTML = "";
 
   state.todos.forEach((todo) => {
+    if (done.checked && !todo.done) {
+      return;
+    }
+    if (open.checked && todo.done) {
+      return;
+    }
+
     const input = document.createElement("input");
     input.type = "checkbox";
     input.checked = todo.done;
@@ -49,8 +60,6 @@ function render() {
   });
 }
 
-render();
-
 // Refresh
 function refresh() {
   // GET
@@ -73,6 +82,14 @@ form.addEventListener("submit", (e) => {
   if (description === "") {
     alert("Please insert Todo");
     return;
+  }
+
+  for (let i = 0; i < state.todos.length; i++) {
+    const todo = state.todos[i];
+    if (todo.description.toLowerCase() === description.toLowerCase()) {
+      alert("Todo already exists");
+      return;
+    }
   }
 
   const newTodo = {
@@ -99,4 +116,37 @@ form.addEventListener("submit", (e) => {
   inputField.value = "";
 });
 
+all.addEventListener("change", () => {
+  state.filter = "all";
+  // saveState();
+  render();
+});
+
+open.addEventListener("change", () => {
+  state.filter = "open";
+  // saveState();
+  render();
+});
+
+done.addEventListener("change", () => {
+  state.filter = "done";
+  // saveState();
+  render();
+});
+
+removeButton.addEventListener("click", () => {
+  const doneTodos = state.todos.filter((todo) => todo.done);
+  doneTodos.forEach((todo) => {
+    fetch("http://localhost:4730/todos/" + todo.id, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {});
+    refresh();
+  });
+});
+
+console.log(state);
+
 refresh();
+render();
