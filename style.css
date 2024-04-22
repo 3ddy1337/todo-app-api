@@ -1,0 +1,83 @@
+html {
+  margin: 0 auto;
+  height: 100vh;
+  background-color: rgba(255, 0, 0, 0.213);
+}
+
+body {
+  box-shadow: 0 0 10px 0 red;
+  border-radius: 25px;
+  height: 80vh;
+  max-width: 355px;
+  margin: 1rem auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.361);
+  position: relative;
+}
+
+h1 {
+  padding-top: 1rem;
+}
+
+#submit-btn {
+  color: rgb(190, 190, 190);
+  background-color: rgba(0, 0, 0, 0.361);
+  box-shadow: 0 0 5px 0 red;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 30px;
+  left: 45%;
+  padding-top: 0px;
+  padding-bottom: 7px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 25px;
+}
+
+#input-field {
+  color: rgb(190, 190, 190);
+  background-color: rgba(0, 0, 0, 0.361);
+  box-shadow: 0 0 5px 0 red;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+#remove-button {
+  color: rgb(190, 190, 190);
+  background-color: rgba(0, 0, 0, 0.361);
+  box-shadow: 0 0 5px 0 red;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+}
+
+ul {
+  width: 340px;
+  white-space: normal;
+  display: inline-block;
+  inline-size: 340px;
+  overflow: wrap;
+}
+
+li {
+  color: rgb(190, 190, 190);
+  background-color: rgba(0, 0, 0, 0.361);
+  box-shadow: 0 0 5px 0 red;
+  margin: 0.75rem 1.25rem;
+  margin-left: -20px;
+  text-align: left;
+  padding: 0.25rem;
+  text-wrap: nowrap;
+}
+
+li input {
+  margin-right: 1rem;
+  margin-left: 0.25rem;
+}
+
+ul,
+li {
+  list-style-type: none;
+}

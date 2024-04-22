@@ -65,11 +65,9 @@ function refresh() {
   // GET
   fetch("http://localhost:4730/todos")
     .then((response) => {
-      console.log("response", response);
       return response.json();
     })
     .then((data) => {
-      console.log("data", data);
       state.todos = data;
       render();
     });
@@ -116,23 +114,43 @@ form.addEventListener("submit", (e) => {
   inputField.value = "";
 });
 
+// let filter = "all";
+
 all.addEventListener("change", () => {
-  state.filter = "all";
-  // saveState();
+  // filter = "all";
+  // saveFilter();
   render();
 });
 
 open.addEventListener("change", () => {
-  state.filter = "open";
-  // saveState();
+  // filter = "open";
+  // saveFilter();
   render();
 });
 
 done.addEventListener("change", () => {
-  state.filter = "done";
-  // saveState();
+  // filter = "done";
+  // saveFilter();
   render();
 });
+
+// function saveFilter() {
+//   fetch("http://localhost:4730/todos/", {
+//     method: "POST",
+//     body: JSON.stringify(filter),
+//     headers: {
+//       "Content-Type": "appLication/json",
+//     },
+//   })
+//     .then((response) => {
+//       // console.log("response", response);
+//       return response.json();
+//     })
+//     .then((data) => {
+//       // console.log("data", data);
+//       refresh();
+//     });
+// }
 
 removeButton.addEventListener("click", () => {
   const doneTodos = state.todos.filter((todo) => todo.done);
@@ -145,8 +163,6 @@ removeButton.addEventListener("click", () => {
     refresh();
   });
 });
-
-console.log(state);
 
 refresh();
 render();
