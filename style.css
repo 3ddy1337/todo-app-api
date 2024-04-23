@@ -7,7 +7,7 @@ html {
 body {
   box-shadow: 0 0 10px 0 red;
   border-radius: 25px;
-  height: 80vh;
+  min-height: 80vh;
   max-width: 355px;
   margin: 1rem auto;
   text-align: center;
